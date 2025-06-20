@@ -1,5 +1,5 @@
 // FILE: src/App.jsx
-// DESC: Final version with working Save, Load, and Reset functionality.
+// DESC: Updated to correctly center the view after resetting the diagram.
 
 import React, { useCallback, useState, useMemo, useRef, useEffect } from 'react';
 import ReactFlow, {
@@ -35,7 +35,7 @@ function App() {
 
   const [isAddNodeOpen, setAddNodeOpen] = useState(false);
   const addNodeRef = useRef(null);
-  const reactFlowInstance = useReactFlow(); // Get the react-flow instance
+  const reactFlowInstance = useReactFlow();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -89,8 +89,6 @@ function App() {
     }
   }, [setEdges]);
 
-  // --- SAVE, LOAD, AND RESET FUNCTIONS ---
-
   const saveDiagram = useCallback(() => {
     const flow = {
       nodes: nodes,
@@ -117,25 +115,30 @@ function App() {
       reader.onload = (e) => {
         const flow = JSON.parse(e.target.result);
         if (flow) {
+          const { x = 0, y = 0, zoom = 1 } = flow.viewport || {};
           setNodes(flow.nodes || []);
           setEdges(flow.edges || []);
           setDiagramName(flow.name || 'Untitled Diagram');
-          reactFlowInstance.setViewport(flow.viewport || { x: 0, y: 0, zoom: 1 });
+          reactFlowInstance.setViewport({ x, y, zoom });
         }
       };
       reader.readAsText(file);
-      // Clear the input value to allow loading the same file again
       event.target.value = '';
     }
   }, [setNodes, setEdges, setDiagramName, reactFlowInstance]);
 
   const resetToTemplate = useCallback(() => {
-    // A confirmation dialog is a good practice here
     if (window.confirm('Are you sure you want to reset? Any unsaved changes will be lost.')) {
       setNodes(initialNodes);
       setEdges(initialEdges);
       setDiagramName('Integration Diagram');
-      reactFlowInstance.setViewport({ x: 0, y: 0, zoom: 1 });
+      
+      // UPDATED: This is the key change. We now call fitView.
+      // We use a small timeout to ensure the nodes have been set in the state
+      // before we try to fit the view to them.
+      setTimeout(() => {
+        reactFlowInstance.fitView({ padding: 0.1 }); // The padding adds a nice margin
+      }, 0);
     }
   }, [setNodes, setEdges, setDiagramName, reactFlowInstance]);
 
@@ -173,7 +176,8 @@ function App() {
           onEdgesChange={onEdgesChange} onConnect={onConnect}
           onEdgeDoubleClick={onEdgeDoubleClick} nodeTypes={nodeTypes}
           isValidConnection={isValidConnection}
-          deleteKeyCode={['Backspace', 'Delete']} fitView
+          deleteKeyCode={['Backspace', 'Delete']}
+          fitView // This fits the view on the initial load
           className="react-flow-canvas"
         >
           <Controls />
