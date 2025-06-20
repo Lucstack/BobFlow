@@ -1,12 +1,18 @@
-/* FILE: src/App.css */
-/* DESC: All styles for the application, with the final fix for marketplace banner positioning. */
+/*
+  FILE: src/App.css
+  DESC: A cleaned-up and reorganized stylesheet for the application.
+*/
+
+/* ==========================================================================
+   Imports & Global Variables
+   ========================================================================== */
 
 @import 'reactflow/dist/style.css';
 
 :root {
   --node-bg: #ffffff;
-  --node-border: #bbbbbb;
-  --node-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --node-border: #e0e0e0;
+  --node-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   --node-radius: 12px;
   --text-primary: #2c3e50;
   --text-secondary: #576574;
@@ -17,8 +23,14 @@
   --canvas-bg: #f9fafb;
 }
 
+/* ==========================================================================
+   Base & Layout Styles
+   ========================================================================== */
+
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   margin: 0;
   background-color: var(--canvas-bg);
   color: var(--text-primary);
@@ -37,13 +49,17 @@ body {
   background: rgba(255, 255, 255, 0.5) !important;
 }
 
+/* ==========================================================================
+   Toolbar
+   ========================================================================== */
+
 .toolbar {
   display: flex;
   align-items: center;
   padding: 12px 20px;
   background-color: var(--toolbar-bg);
-  border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-bottom: 1px solid var(--node-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 10;
 }
 
@@ -56,8 +72,14 @@ body {
   margin-right: auto;
   transition: all 0.2s ease-in-out;
 }
-.diagram-name-input:hover { border-color: #ccc; }
-.diagram-name-input:focus { outline: none; border-color: var(--accent-hibob); box-shadow: 0 0 0 2px rgba(255, 72, 139, 0.2); }
+.diagram-name-input:hover {
+  border-color: #ccc;
+}
+.diagram-name-input:focus {
+  outline: none;
+  border-color: var(--accent-hibob);
+  box-shadow: 0 0 0 2px rgba(255, 72, 139, 0.2);
+}
 
 .toolbar-btn {
   background-color: #fff;
@@ -73,9 +95,24 @@ body {
   align-items: center;
   gap: 6px;
 }
-.toolbar-btn:hover { background-color: #f5f5f5; border-color: #999; }
-.toolbar-btn.save-btn, .toolbar-btn.add-btn { background-color: var(--accent-hibob); color: white; border-color: var(--accent-hibob); }
-.toolbar-btn.save-btn:hover, .toolbar-btn.add-btn:hover { opacity: 0.9; }
+.toolbar-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #999;
+}
+.toolbar-btn.save-btn,
+.toolbar-btn.add-btn {
+  background-color: var(--accent-hibob);
+  color: white;
+  border-color: var(--accent-hibob);
+}
+.toolbar-btn.save-btn:hover,
+.toolbar-btn.add-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Dropdown Menus
+   ========================================================================== */
 
 .add-node-wrapper {
   position: relative;
@@ -88,7 +125,7 @@ body {
   right: 0;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 20;
   padding: 8px;
   display: flex;
@@ -109,28 +146,28 @@ body {
   text-align: left;
   width: 100%;
 }
-
 .add-node-dropdown .dropdown-btn:hover {
   background-color: #f0f0f0;
   border-color: #ccc;
 }
 
-.custom-node {
+/* ==========================================================================
+   Node Styles (General)
+   ========================================================================== */
+
+.custom-node, .central-node {
   background: var(--node-bg);
   border: 1px solid var(--node-border);
   border-radius: var(--node-radius);
   box-shadow: var(--node-shadow);
   width: 280px;
   padding: 16px;
-  box-sizing: border-box;
   color: var(--text-primary);
   transition: all 0.2s ease;
-  position: relative;
-  /* FIXED: Added overflow: visible to ensure the banner stays visible */
-  overflow: visible;
+  overflow: visible; /* Ensures badges/etc aren't clipped */
 }
 
-.custom-node.selected {
+.custom-node.selected, .central-node.selected {
   border-color: var(--accent-hibob);
   box-shadow: 0 0 0 3px rgba(255, 72, 139, 0.3), var(--node-shadow);
 }
@@ -141,7 +178,6 @@ body {
 
 .marketplace-badge {
   position: absolute;
-  /* FIXED: Simple corner positioning without rotation */
   top: 0;
   right: 0;
   background-color: var(--accent-marketplace);
@@ -149,17 +185,11 @@ body {
   padding: 4px 8px;
   font-size: 9px;
   font-weight: bold;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 0 var(--node-radius) 0 4px;
-  /* FIXED: Added z-index to ensure banner appears above other elements */
   z-index: 5;
 }
 
-.marketplace-badge .marketplace-text {
-  /* No transform needed for non-rotated banner */
-}
-
+/* Header Content */
 .node-header {
   display: flex;
   align-items: center;
@@ -179,41 +209,93 @@ body {
   background-color: #f0f0f0;
   flex-shrink: 0;
 }
-
 .node-logo {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 8px;
 }
-
 .logo-placeholder {
   font-size: 24px;
   font-weight: bold;
   color: var(--text-secondary);
 }
-
-.platform-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.category-label {
-  font-size: 12px;
-  color: var(--text-secondary);
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.node-title,
-.platform-button {
+.node-title {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
   color: var(--text-primary);
 }
 
+/* Body Content */
+.info-box {
+  margin-bottom: 12px;
+}
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.info-content {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #34495e;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+   Node Styles (Specific)
+   ========================================================================== */
+
+.central-node {
+  width: 320px;
+  height: 200px;
+  background-color: #2c3e50;
+  border: 4px solid var(--accent-hibob);
+  border-radius: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.central-node.selected {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 4px rgba(255, 72, 139, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.central-content {
+  text-align: center;
+  padding: 20px;
+}
+.hibob-logo-container {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 0 auto 10px;
+}
+.hibob-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* Platform Node Dropdown */
+.platform-info {
+  display: flex;
+  flex-direction: column;
+}
 .platform-button {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
   background: none;
   border: none;
   padding: 0;
@@ -222,21 +304,11 @@ body {
   display: flex;
   align-items: center;
 }
-
 .dropdown-arrow {
   margin-left: 6px;
   font-size: 10px;
   transition: transform 0.2s ease;
 }
-
-.platform-button:hover .dropdown-arrow {
-  transform: translateY(2px);
-}
-
-.platform-selector {
-  position: relative;
-}
-
 .platform-dropdown {
   position: absolute;
   top: 105%;
@@ -250,23 +322,18 @@ body {
   max-height: 220px;
   overflow-y: auto;
 }
-
 .platform-option {
   display: flex;
   align-items: center;
   padding: 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
-
 .platform-option:hover {
   background-color: #f0f0f0;
 }
-
 .platform-option.selected {
   background-color: #e9f5ff;
 }
-
 .option-logo {
   width: 24px;
   height: 24px;
@@ -274,37 +341,9 @@ body {
   border-radius: 4px;
 }
 
-.option-label {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.marketplace-indicator {
-  margin-left: auto;
-  color: var(--accent-marketplace);
-  font-weight: bold;
-}
-
-.info-box {
-  margin-bottom: 12px;
-}
-
-.info-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
-
-.info-content {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #34495e;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
+/* ==========================================================================
+   Handles and Edges
+   ========================================================================== */
 
 .handle {
   width: 10px;
@@ -314,80 +353,25 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
 .handle:hover {
-  background: var(--accent-hibob);
-}
-
-.central-node {
-  width: 320px;
-  height: 200px;
-  background-color: #2c3e50;
-  border: 4px solid var(--accent-hibob);
-  border-radius: 100px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.central-node.selected {
-  transform: scale(1.02);
-  box-shadow: 0 0 0 4px rgba(255, 72, 139, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.central-content {
-  text-align: center;
-  padding: 20px;
-}
-
-.hibob-logo-container {
-  width: 60px;
-  height: 60px;
-  background: white;
-  border-radius: 50%;
-  padding: 5px;
-  margin: 0 auto 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.hibob-logo {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.platform-name {
-  font-size: 22px;
-  margin: 0 0 4px 0;
-  font-weight: 700;
-}
-
-.platform-subtitle {
-  font-size: 13px;
-  opacity: 0.8;
-  margin-bottom: 8px;
-}
-
-.platform-tagline {
-  font-size: 12px;
-  font-style: italic;
-  opacity: 0.7;
-}
-
-.central-handle {
-  width: 12px;
-  height: 12px;
   background-color: var(--accent-hibob);
 }
 
-.legend { position: absolute; bottom: 20px; right: 20px; background: rgba(255, 255, 255, 0.9); padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border: 1px solid #eee; z-index: 10; backdrop-filter: blur(5px); }
-.legend h4 { margin: 0 0 10px 0; font-size: 14px; }
-.legend-item { display: flex; align-items: center; margin-bottom: 6px; font-size: 12px; }
-.legend-dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; border: 2px solid rgba(0,0,0,0.1); }
-.identity { background-color: #e3f2fd; } .recruitment { background-color: #fce4ec; } .communication { background-color: #f3e5f5; } .learning { background-color: #e8f5e9; } .calendar { background-color: #fff3e0; } .payroll { background-color: #fff8e1; } .tools { background-color: #e0f2f1; }
+/* UPDATED: POINTER-EVENTS LOGIC */
+/* This is the key to making the stacked handles work without offsetting them. */
+
+/* 1. By default, make the source handle clickable. */
+.handle.source-handle {
+  pointer-events: auto;
+}
+
+/* 2. By default, make the target handle "invisible" to the mouse. */
+.handle.target-handle {
+  pointer-events: none;
+}
+
+/* 3. When a connection is being dragged, make ALL target handles clickable again. */
+/* ReactFlow adds the 'connecting' class to the canvas while you drag an edge. */
+.react-flow.connecting .handle.target-handle {
+  pointer-events: auto;
+}

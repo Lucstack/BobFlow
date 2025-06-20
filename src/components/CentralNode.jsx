@@ -1,78 +1,53 @@
 // FILE: src/components/CentralNode.jsx
-// DESC: The main HiBob node, now with an editable title.
+// DESC: Rewritten to include specific class names for source and target handles.
 
 import React, { useState } from 'react';
 import { Handle, Position, useReactFlow } from 'reactflow';
 
 const CentralNode = ({ data, selected, id }) => {
-  // NEW: State to manage when the node's title is being edited
   const [isEditing, setIsEditing] = useState(false);
-  // NEW: State to hold the temporary value of the title while editing
   const [tempLabel, setTempLabel] = useState(data.label);
-  // NEW: Hook to get access to the React Flow instance for updating nodes
   const { setNodes } = useReactFlow();
 
-  // NEW: Enable editing mode on double-click
-  const handleDoubleClick = () => {
-    setIsEditing(true);
-  };
-
-  // NEW: Save the new label to the node's data
+  const handleDoubleClick = () => { setIsEditing(true); };
   const handleSave = () => {
     setNodes((nds) =>
-      nds.map((node) => {
-        if (node.id === id) {
-          // Update the data for the current node
-          return { ...node, data: { ...node.data, label: tempLabel } };
-        }
-        return node;
-      })
+      nds.map((node) => (node.id === id ? { ...node, data: { ...node.data, label: tempLabel } } : node))
     );
-    setIsEditing(false); // Disable editing mode
+    setIsEditing(false);
   };
-
-  // NEW: Handle keyboard events for saving or canceling edits
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSave(); // Save on Enter
-    } else if (e.key === 'Escape') {
-      setIsEditing(false); // Cancel on Escape
-      setTempLabel(data.label); // Revert to original label
+    if (e.key === 'Enter') handleSave();
+    else if (e.key === 'Escape') {
+      setIsEditing(false);
+      setTempLabel(data.label);
     }
   };
 
   return (
     <div className={`central-node hibob-central ${selected ? 'selected' : ''}`}>
-      <Handle type="target" position={Position.Left} id="left" className="handle central-handle" />
-      <Handle type="source" position={Position.Right} id="right" className="handle central-handle" />
-      <Handle type="target" position={Position.Top} id="top" className="handle central-handle" />
-      <Handle type="source" position={Position.Bottom} id="bottom" className="handle central-handle" />
+      {/* UPDATED: Added source-handle and target-handle classes */}
+      <Handle type="source" position={Position.Top} id="top-source" className="handle central-handle source-handle" />
+      <Handle type="target" position={Position.Top} id="top-target" className="handle central-handle target-handle" />
+      <Handle type="source" position={Position.Right} id="right-source" className="handle central-handle source-handle" />
+      <Handle type="target" position={Position.Right} id="right-target" className="handle central-handle target-handle" />
+      <Handle type="source" position={Position.Bottom} id="bottom-source" className="handle central-handle source-handle" />
+      <Handle type="target" position={Position.Bottom} id="bottom-target" className="handle central-handle target-handle" />
+      <Handle type="source" position={Position.Left} id="left-source" className="handle central-handle source-handle" />
+      <Handle type="target" position={Position.Left} id="left-target" className="handle central-handle target-handle" />
 
       <div className="central-content">
         <div className="hibob-logo-container">
-          <img
-            src="https://yt3.googleusercontent.com/x41lFExybhdzqA-kMpmmTB5FmqabXt6JnynyS8WtCy4Mfu4m8iRQ6R6DyEzbxvTCMELn4XoO=s900-c-k-c0x00ffffff-no-rj"
-            alt="HiBob Logo"
-            className="hibob-logo"
-          />
+          <img src="https://yt3.googleusercontent.com/x41lFExybhdzqA-kMpmmTB5FmqabXt6JnynyS8WtCy4Mfu4m8iRQ6R6DyEzbxvTCMELn4XoO=s900-c-k-c0x00ffffff-no-rj" alt="HiBob Logo" className="hibob-logo"/>
         </div>
-        {/* UPDATED: Conditionally render an input field or the title */}
         {isEditing ? (
           <input
-            type="text"
-            value={tempLabel}
-            onChange={(e) => setTempLabel(e.target.value)}
-            onBlur={handleSave} // Save when focus is lost
-            onKeyDown={handleKeyPress}
-            className="edit-input central-input"
-            autoFocus // Automatically focus the input field
+            type="text" value={tempLabel} onChange={(e) => setTempLabel(e.target.value)}
+            onBlur={handleSave} onKeyDown={handleKeyPress}
+            className="edit-input central-input" autoFocus
           />
         ) : (
-          <h2
-            className="platform-name editable"
-            onDoubleClick={handleDoubleClick}
-            title="Double-click to edit"
-          >
+          <h2 className="platform-name editable" onDoubleClick={handleDoubleClick} title="Double-click to edit">
             {data.label}
           </h2>
         )}
