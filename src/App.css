@@ -1,0 +1,393 @@
+/* FILE: src/App.css */
+/* DESC: All styles for the application, with the final fix for marketplace banner positioning. */
+
+@import 'reactflow/dist/style.css';
+
+:root {
+  --node-bg: #ffffff;
+  --node-border: #bbbbbb;
+  --node-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --node-radius: 12px;
+  --text-primary: #2c3e50;
+  --text-secondary: #576574;
+  --accent-hibob: #ff488b;
+  --accent-marketplace: #2ecc71;
+  --input-bg: #f8f9fa;
+  --toolbar-bg: #ffffff;
+  --canvas-bg: #f9fafb;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background-color: var(--canvas-bg);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.flow-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.react-flow__attribution {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: var(--toolbar-bg);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.diagram-name-input {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  margin-right: auto;
+  transition: all 0.2s ease-in-out;
+}
+.diagram-name-input:hover { border-color: #ccc; }
+.diagram-name-input:focus { outline: none; border-color: var(--accent-hibob); box-shadow: 0 0 0 2px rgba(255, 72, 139, 0.2); }
+
+.toolbar-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.toolbar-btn:hover { background-color: #f5f5f5; border-color: #999; }
+.toolbar-btn.save-btn, .toolbar-btn.add-btn { background-color: var(--accent-hibob); color: white; border-color: var(--accent-hibob); }
+.toolbar-btn.save-btn:hover, .toolbar-btn.add-btn:hover { opacity: 0.9; }
+
+.add-node-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.add-node-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 20;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 200px;
+}
+
+.add-node-dropdown .dropdown-btn {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+  width: 100%;
+}
+
+.add-node-dropdown .dropdown-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.custom-node {
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  border-radius: var(--node-radius);
+  box-shadow: var(--node-shadow);
+  width: 280px;
+  padding: 16px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  position: relative;
+  /* FIXED: Added overflow: visible to ensure the banner stays visible */
+  overflow: visible;
+}
+
+.custom-node.selected {
+  border-color: var(--accent-hibob);
+  box-shadow: 0 0 0 3px rgba(255, 72, 139, 0.3), var(--node-shadow);
+}
+
+.custom-node.marketplace-partner {
+  border-left: 5px solid var(--accent-marketplace);
+}
+
+.marketplace-badge {
+  position: absolute;
+  /* FIXED: Simple corner positioning without rotation */
+  top: 0;
+  right: 0;
+  background-color: var(--accent-marketplace);
+  color: white;
+  padding: 4px 8px;
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 0 var(--node-radius) 0 4px;
+  /* FIXED: Added z-index to ensure banner appears above other elements */
+  z-index: 5;
+}
+
+.marketplace-badge .marketplace-text {
+  /* No transform needed for non-rotated banner */
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo-container {
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.node-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.logo-placeholder {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.platform-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.node-title,
+.platform-button {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.platform-button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-arrow {
+  margin-left: 6px;
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.platform-button:hover .dropdown-arrow {
+  transform: translateY(2px);
+}
+
+.platform-selector {
+  position: relative;
+}
+
+.platform-dropdown {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 250px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  border: 1px solid #ddd;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.platform-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.platform-option:hover {
+  background-color: #f0f0f0;
+}
+
+.platform-option.selected {
+  background-color: #e9f5ff;
+}
+
+.option-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.option-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.marketplace-indicator {
+  margin-left: auto;
+  color: var(--accent-marketplace);
+  font-weight: bold;
+}
+
+.info-box {
+  margin-bottom: 12px;
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.info-content {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #34495e;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.handle {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.handle:hover {
+  background: var(--accent-hibob);
+}
+
+.central-node {
+  width: 320px;
+  height: 200px;
+  background-color: #2c3e50;
+  border: 4px solid var(--accent-hibob);
+  border-radius: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.central-node.selected {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 4px rgba(255, 72, 139, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.central-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.hibob-logo-container {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.hibob-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.platform-name {
+  font-size: 22px;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.platform-subtitle {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.platform-tagline {
+  font-size: 12px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.central-handle {
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-hibob);
+}
+
+.legend { position: absolute; bottom: 20px; right: 20px; background: rgba(255, 255, 255, 0.9); padding: 15px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border: 1px solid #eee; z-index: 10; backdrop-filter: blur(5px); }
+.legend h4 { margin: 0 0 10px 0; font-size: 14px; }
+.legend-item { display: flex; align-items: center; margin-bottom: 6px; font-size: 12px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; border: 2px solid rgba(0,0,0,0.1); }
+.identity { background-color: #e3f2fd; } .recruitment { background-color: #fce4ec; } .communication { background-color: #f3e5f5; } .learning { background-color: #e8f5e9; } .calendar { background-color: #fff3e0; } .payroll { background-color: #fff8e1; } .tools { background-color: #e0f2f1; }

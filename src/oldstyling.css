@@ -1,0 +1,398 @@
+/* FILE: src/App.css */
+/* DESC: Styles updated to reflect the new dark red branding. */
+
+@import 'reactflow/dist/style.css';
+
+:root {
+  /* UPDATED: New brand color palette */
+  --node-bg: #e0e0e0;
+  --node-border: #F6F3E8; /* UPDATED border color */
+  --node-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --node-radius: 12px;
+  --text-primary: #F6F3E8;
+  --text-secondary: #EAEAEA;
+  --accent-primary: #FF8A00; /* Bright Orange for accents */
+  --accent-secondary: #d4005d; /* Hibob Pink for specific highlights */
+  --toolbar-bg: #FFFFFF;
+  --canvas-bg: #9C2443; /* Dark Red background */
+  --node-header-bg: #5A022F;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background-color: var(--canvas-bg);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.flow-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Make React Flow attribution visible on dark background */
+.react-flow__attribution {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 2px 5px !important;
+  border-radius: 4px;
+}
+.react-flow__attribution, .react-flow__attribution a {
+    color: rgba(255,255,255,0.5);
+}
+
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: var(--toolbar-bg);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.diagram-name-input {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  margin-right: auto;
+  transition: all 0.2s ease-in-out;
+  color: #1a1a1a;
+}
+.diagram-name-input:hover { border-color: #ccc; }
+.diagram-name-input:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(255, 138, 0, 0.2); }
+
+.toolbar-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #1a1a1a;
+}
+.toolbar-btn:hover { background-color: #f5f5f5; border-color: #999; }
+.toolbar-btn.save-btn, .toolbar-btn.add-btn { background-color: var(--accent-primary); color: white; border-color: var(--accent-primary); }
+.toolbar-btn.save-btn:hover, .toolbar-btn.add-btn:hover { opacity: 0.9; }
+
+.add-node-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.add-node-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 20;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 200px;
+}
+
+.add-node-dropdown .dropdown-btn {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+  width: 100%;
+  color: #1a1a1a;
+}
+
+.add-node-dropdown .dropdown-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+/* UPDATED: Node styles for dark theme */
+.custom-node {
+  background: var(--node-header-bg);
+  border: 4px solid var(--node-border);
+  border-radius: var(--node-radius);
+  box-shadow: var(--node-shadow);
+  width: 280px;
+  padding: 0; /* Remove padding to allow header to be full-width */
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-node.selected {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.3), var(--node-shadow);
+}
+
+.marketplace-badge {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background-color: var(--accent-secondary); /* Hibob Pink for marketplace */
+  color: white;
+  padding: 4px 30px;
+  font-size: 10px;
+  font-weight: bold;
+  transform: rotate(45deg);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.marketplace-badge .marketplace-text {
+  transform: translateY(2px);
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo-container {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+.node-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.logo-placeholder {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.platform-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.category-label {
+  font-size: 12px;
+  color: var(--accent-primary);
+  font-weight: 500;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.node-title,
+.platform-button {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.platform-button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-arrow {
+  margin-left: 6px;
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.platform-button:hover .dropdown-arrow {
+  transform: translateY(2px);
+}
+
+.platform-selector {
+  position: relative;
+}
+
+.platform-dropdown {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 250px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  border: 1px solid #ddd;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.platform-option, .platform-option .option-label {
+  color: #1a1a1a;
+}
+
+.platform-option:hover {
+  background-color: #f0f0f0;
+}
+
+.platform-option.selected {
+  background-color: #e9f5ff;
+}
+
+.option-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.option-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.marketplace-indicator {
+  margin-left: auto;
+  color: var(--accent-secondary);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.info-box {
+  padding: 12px 16px;
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.info-content {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.handle {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  border: 2px solid var(--canvas-bg);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.handle:hover {
+  background: var(--accent-primary);
+}
+
+.central-node {
+  width: 320px;
+  height: 200px;
+  background-color: #3C011B; /* Darker red for central node */
+  border: 4px solid var(--accent-secondary);
+  border-radius: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.central-node.selected {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 4px rgba(212, 0, 93, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.central-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.hibob-logo-container {
+  width: 60px;
+  height: 60px;
+  background: var(--accent-secondary);
+  border-radius: 50%;
+  padding: 5px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.hibob-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.platform-name {
+  font-size: 22px;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.platform-subtitle {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.platform-tagline {
+  font-size: 12px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.central-handle {
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-secondary);
+}
+
+.legend { display: none; } /* Hide the old legend for now */
+
+.editable { cursor: text; border-radius: 4px; padding: 4px; margin: -4px; transition: background-color 0.2s ease; }
+.editable:hover { background-color: rgba(255, 255, 255, 0.05); }
+.edit-input, .edit-textarea { width: 100%; padding: 6px; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: inherit; font-size: 13px; background-color: rgba(0,0,0,0.2); color: var(--text-primary); }
+.edit-textarea { resize: vertical; min-height: 60px; }
+.edit-input:focus, .edit-textarea:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(255, 138, 0, 0.3); }
+.central-input { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); text-align: center; font-size: 22px; font-weight: 700; }
