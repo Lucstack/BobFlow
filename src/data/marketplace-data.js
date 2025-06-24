@@ -113,6 +113,15 @@ export const marketplaceCategories = {
         integrationDetails:
           'Bob built | Two-way\nSync: Real time\nData: Notifications, updates, & time off alerts',
       },
+      {
+        id: 'outlookcalendar',
+        name: 'Outlook Calendar Teams',
+        logoUrl: 'https://store-images.s-microsoft.com/image/apps.30616.14374512070697751.fcbc53c2-4843-4c59-aa6a-206ec85835b5.915cc067-8e3d-468b-bc6b-37c7c8d35d93',
+        isMarketplacePartner: true,
+        usedFor: 'Calendar.',
+        integrationDetails:
+          'Bob built | Two-way\nSync: Real time\nData: Time off, Tasklist events, recurring 121 and Hiring interviews',
+      },
     ],
   },
 
