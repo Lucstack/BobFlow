@@ -107,7 +107,7 @@ export const marketplaceCategories = {
       {
         id: 'msteams',
         name: 'Microsoft Teams',
-        logoUrl: 'https://logo.clearbit.com/microsoft.com',
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png',
         isMarketplacePartner: true,
         usedFor: 'Collaboration and team messaging.',
         integrationDetails:
@@ -132,7 +132,7 @@ export const marketplaceCategories = {
       {
         id: 'ad-onprem',
         name: 'Active Directory (On-Prem)',
-        logoUrl: 'https://logo.clearbit.com/microsoft.com',
+        logoUrl: 'https://assets.graffletopia.com/production/canvases/1485/4266/1439747576/original.png?1439747576',
         isMarketplacePartner: true,
         usedFor: 'Manage on-premise users and permissions.',
         integrationDetails: 'Partner built | One-way from Bob\nTrigger: Real-time on employee events\nData: New hires, terminations, and profile updates for user provisioning'
@@ -148,7 +148,7 @@ export const marketplaceCategories = {
       { 
         id: 'azure-ad', 
         name: 'Microsoft Entra ID', 
-        logoUrl: 'https://logo.clearbit.com/microsoft.com', 
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Microsoft_Entra_ID_color_icon.svg/1200px-Microsoft_Entra_ID_color_icon.svg.png', 
         isMarketplacePartner: true,
         usedFor: 'Cloud identity and access management.',
         integrationDetails: 'Bob built | One-way from Bob\nTrigger: Real-time on employee events\nData: New hires, terminations, and profile updates'
