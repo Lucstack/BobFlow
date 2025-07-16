@@ -88,6 +88,15 @@ export const marketplaceCategories = {
         integrationDetails:
           'Bob built | One-way\nTrigger: When a candidate is hired\nData: New hire created from candidate info',
       },
+      {
+        id: 'jazzhr',
+        name: 'JazzHR',
+        logoUrl: 'https://logo.clearbit.com/jazzhr.com',
+        isMarketplacePartner: true,
+        usedFor: 'Applicant tracking system for SMBs.',
+        integrationDetails:
+          'Partner built | One-way\nTrigger: When a candidate is hired\nData: New hire data from candidate profile',
+      },
     ],
   },
 
@@ -107,7 +116,8 @@ export const marketplaceCategories = {
       {
         id: 'msteams',
         name: 'Microsoft Teams',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png',
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/1200px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png',
         isMarketplacePartner: true,
         usedFor: 'Collaboration and team messaging.',
         integrationDetails:
@@ -116,7 +126,8 @@ export const marketplaceCategories = {
       {
         id: 'outlookcalendar',
         name: 'Outlook Calendar Teams',
-        logoUrl: 'https://store-images.s-microsoft.com/image/apps.30616.14374512070697751.fcbc53c2-4843-4c59-aa6a-206ec85835b5.915cc067-8e3d-468b-bc6b-37c7c8d35d93',
+        logoUrl:
+          'https://store-images.s-microsoft.com/image/apps.30616.14374512070697751.fcbc53c2-4843-4c59-aa6a-206ec85835b5.915cc067-8e3d-468b-bc6b-37c7c8d35d93',
         isMarketplacePartner: true,
         usedFor: 'Calendar.',
         integrationDetails:
@@ -127,15 +138,17 @@ export const marketplaceCategories = {
 
   // Category: Identity & SSO
   identity: {
-    displayName: "Identity & SSO",
+    displayName: 'Identity & SSO',
     integrations: [
       {
         id: 'ad-onprem',
         name: 'Active Directory (On-Prem)',
-        logoUrl: 'https://assets.graffletopia.com/production/canvases/1485/4266/1439747576/original.png?1439747576',
+        logoUrl:
+          'https://assets.graffletopia.com/production/canvases/1485/4266/1439747576/original.png?1439747576',
         isMarketplacePartner: true,
         usedFor: 'Manage on-premise users and permissions.',
-        integrationDetails: 'Partner built | One-way from Bob\nTrigger: Real-time on employee events\nData: New hires, terminations, and profile updates for user provisioning'
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: Real-time on employee events\nData: New hires, terminations, and profile updates for user provisioning',
       },
       {
         id: 'google-workspace',
@@ -143,23 +156,27 @@ export const marketplaceCategories = {
         logoUrl: 'https://logo.clearbit.com/workspace.google.com',
         isMarketplacePartner: true,
         usedFor: 'Manage users across Google services.',
-        integrationDetails: 'Bob built | One-way from Bob\nTrigger: Upon new hire or manual sync\nData: New hire name and email for account creation'
+        integrationDetails:
+          'Bob built | One-way from Bob\nTrigger: Upon new hire or manual sync\nData: New hire name and email for account creation',
       },
-      { 
-        id: 'azure-ad', 
-        name: 'Microsoft Entra ID', 
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Microsoft_Entra_ID_color_icon.svg/1200px-Microsoft_Entra_ID_color_icon.svg.png', 
+      {
+        id: 'azure-ad',
+        name: 'Microsoft Entra ID',
+        logoUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Microsoft_Entra_ID_color_icon.svg/1200px-Microsoft_Entra_ID_color_icon.svg.png',
         isMarketplacePartner: true,
         usedFor: 'Cloud identity and access management.',
-        integrationDetails: 'Bob built | One-way from Bob\nTrigger: Real-time on employee events\nData: New hires, terminations, and profile updates'
+        integrationDetails:
+          'Bob built | One-way from Bob\nTrigger: Real-time on employee events\nData: New hires, terminations, and profile updates',
       },
-      { 
-        id: 'okta', 
-        name: 'Okta', 
-        logoUrl: 'https://logo.clearbit.com/okta.com', 
+      {
+        id: 'okta',
+        name: 'Okta',
+        logoUrl: 'https://logo.clearbit.com/okta.com',
         isMarketplacePartner: true,
         usedFor: 'Identity and access management.',
-        integrationDetails: 'Partner built | One-way from Bob (API & SCIM available)\nTrigger: Real-time on employee events\nData: Employee data for user provisioning and updates'
+        integrationDetails:
+          'Partner built | One-way from Bob (API & SCIM available)\nTrigger: Real-time on employee events\nData: Employee data for user provisioning and updates',
       },
       {
         id: 'onelogin',
@@ -167,7 +184,8 @@ export const marketplaceCategories = {
         logoUrl: 'https://logo.clearbit.com/onelogin.com',
         isMarketplacePartner: true,
         usedFor: 'Secure, one-click access for employees.',
-        integrationDetails: 'Bob built | One-way from Bob\nTrigger: Scheduled daily sync\nData: Employee data and profile updates for provisioning'
+        integrationDetails:
+          'Bob built | One-way from Bob\nTrigger: Scheduled daily sync\nData: Employee data and profile updates for provisioning',
       },
       {
         id: 'ping-identity',
@@ -175,9 +193,10 @@ export const marketplaceCategories = {
         logoUrl: 'https://logo.clearbit.com/pingidentity.com',
         isMarketplacePartner: true,
         usedFor: 'Enterprise identity and access management.',
-        integrationDetails: 'Partner built | One-way from Bob\nTrigger: Real-time on employee events\nData: Employee data for user provisioning'
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: Real-time on employee events\nData: Employee data for user provisioning',
       },
-    ]
+    ],
   },
 
   // Category: Payroll
@@ -191,7 +210,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: false,
         usedFor: 'Payroll and HR services.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Payroll changes & employee updates'
+          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Payroll changes & employee updates',
       },
       {
         id: 'blue-marble',
@@ -200,7 +219,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Global payroll and HR services.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data for payroll processing'
+          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data for payroll processing',
       },
       {
         id: 'cloudpay',
@@ -209,7 +228,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Global payroll and payments.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Real-time and scheduled syncs\nData: Employee data, time off, and compensation'
+          'Partner built | Two-way\nTrigger: Real-time and scheduled syncs\nData: Employee data, time off, and compensation',
       },
       {
         id: 'deel',
@@ -218,7 +237,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Global payroll and compliance.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data, time off, & compensation'
+          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data, time off, & compensation',
       },
       {
         id: 'ii-pay',
@@ -227,7 +246,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Global payroll solutions.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Employee data for payroll processing'
+          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Employee data for payroll processing',
       },
       {
         id: 'payfit',
@@ -236,7 +255,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Payroll and HR software for SMEs.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Real-time sync\nData: Employee data, time off, and salary information'
+          'Partner built | Two-way\nTrigger: Real-time sync\nData: Employee data, time off, and salary information',
       },
       {
         id: 'payslip',
@@ -245,7 +264,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Global payroll management platform.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Scheduled sync\nData: Employee data for payroll processing'
+          'Partner built | Two-way\nTrigger: Scheduled sync\nData: Employee data for payroll processing',
       },
       {
         id: 'brynq',
@@ -254,9 +273,27 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'International HRIS to Payroll middelware.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Real-time sync\nData: Employee data, salary, payslips'
+          'Partner built | Two-way\nTrigger: Real-time sync\nData: Employee data, salary, payslips',
       },
-    ]
+      {
+        id: 'remote',
+        name: 'Remote',
+        logoUrl: 'https://logo.clearbit.com/remote.com',
+        isMarketplacePartner: true,
+        usedFor: 'Global HR, payroll, and compliance platform.',
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data for payroll and compliance',
+      },
+      {
+        id: 'papaya-global',
+        name: 'Papaya Global',
+        logoUrl: 'https://logo.clearbit.com/papayaglobal.com',
+        isMarketplacePartner: true,
+        usedFor: 'Global payroll and workforce management.',
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Employee data, compensation, and time off',
+      },
+    ],
   },
 
   // Category: Learning
@@ -283,7 +320,7 @@ export const marketplaceCategories = {
       },
     ],
   },
-  
+
   // Category: Automation & Unified APIs
   'automation-and-unified-apis': {
     displayName: 'Automation & Unified APIs',
@@ -295,7 +332,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Securely store and manage HR data.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Scheduled daily, weekly, or monthly\nData: Employee data reports exported to your S3 bucket'
+          'Bob built | One-way from Bob\nTrigger: Scheduled daily, weekly, or monthly\nData: Employee data reports exported to your S3 bucket',
       },
       {
         id: 'apideck',
@@ -304,7 +341,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Unified API for HRIS and ATS.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: API calls based on your logic\nData: Unified HRIS data model'
+          'Partner built | Two-way\nTrigger: API calls based on your logic\nData: Unified HRIS data model',
       },
       {
         id: 'aquera',
@@ -313,7 +350,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Automate user provisioning for any application.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Real-time on employee events\nData: Employee data for provisioning'
+          'Partner built | Two-way\nTrigger: Real-time on employee events\nData: Employee data for provisioning',
       },
       {
         id: 'finch',
@@ -322,7 +359,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Unified API for payroll and HR systems.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: API calls based on your logic\nData: Employee directory, payroll, and benefits'
+          'Partner built | Two-way\nTrigger: API calls based on your logic\nData: Employee directory, payroll, and benefits',
       },
       {
         id: 'fivetran',
@@ -331,7 +368,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Centralize data from Bob into your warehouse.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: Scheduled syncs\nData: All employee data for analytics'
+          'Partner built | One-way from Bob\nTrigger: Scheduled syncs\nData: All employee data for analytics',
       },
       {
         id: 'hi-bob-api',
@@ -340,7 +377,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Build custom integrations and workflows.',
         integrationDetails:
-          'Customer built | Two-way\nTrigger: API calls based on your custom logic\nData: All data available in Bob'
+          'Customer built | Two-way\nTrigger: API calls based on your custom logic\nData: All data available in Bob',
       },
       {
         id: 'kombo',
@@ -349,7 +386,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Unified API for HRIS systems.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: API calls and webhooks\nData: Employee data, time off, and documents'
+          'Partner built | Two-way\nTrigger: API calls and webhooks\nData: Employee data, time off, and documents',
       },
       {
         id: 'make',
@@ -358,7 +395,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Visually design, build, and automate any workflow.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Event-based (e.g., New Employee, Employee Update)\nData: Any data from Bob to connect with thousands of apps'
+          'Partner built | Two-way\nTrigger: Event-based (e.g., New Employee, Employee Update)\nData: Any data from Bob to connect with thousands of apps',
       },
       {
         id: 'merge',
@@ -367,7 +404,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Unified API for HR, payroll, and recruiting.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: API calls and webhooks\nData: Common models for employees, payroll, and recruiting'
+          'Partner built | Two-way\nTrigger: API calls and webhooks\nData: Common models for employees, payroll, and recruiting',
       },
       {
         id: 'sftp',
@@ -376,7 +413,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Securely transfer files to any system.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Scheduled daily, weekly, or monthly\nData: Scheduled employee data reports'
+          'Bob built | One-way from Bob\nTrigger: Scheduled daily, weekly, or monthly\nData: Scheduled employee data reports',
       },
       {
         id: 'stackone',
@@ -385,7 +422,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Unified API for HRIS and ATS platforms.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: API calls and webhooks\nData: Common models for all HR data'
+          'Partner built | Two-way\nTrigger: API calls and webhooks\nData: Common models for all HR data',
       },
       {
         id: 'workato',
@@ -394,7 +431,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Enterprise automation platform.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Real-time based on your recipes\nData: Connect Bob data to thousands of applications'
+          'Partner built | Two-way\nTrigger: Real-time based on your recipes\nData: Connect Bob data to thousands of applications',
       },
       {
         id: 'zapier',
@@ -403,11 +440,11 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Automate workflows by connecting Bob to other apps.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Event-based (e.g., New Employee, Time Off Request)\nData: Connect Bob data to over 4,000 apps'
+          'Partner built | Two-way\nTrigger: Event-based (e.g., New Employee, Time Off Request)\nData: Connect Bob data to over 4,000 apps',
       },
-    ]
+    ],
   },
-// Category: Performance & Engagement
+  // Category: Performance & Engagement
   'performance-and-engagement': {
     displayName: 'Performance & Engagement',
     integrations: [
@@ -418,7 +455,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Continuous performance management platform.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On new hire and employee updates\nData: Employee data for performance reviews and engagement surveys'
+          'Partner built | One-way from Bob\nTrigger: On new hire and employee updates\nData: Employee data for performance reviews and engagement surveys',
       },
       {
         id: 'culture-amp',
@@ -427,7 +464,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Employee engagement and performance development.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for surveys and performance tracking'
+          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for surveys and performance tracking',
       },
       {
         id: 'lattice',
@@ -436,7 +473,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Performance management and employee engagement.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: New hires, terminations, and employee profile changes'
+          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: New hires, terminations, and employee profile changes',
       },
       {
         id: 'leapsome',
@@ -445,7 +482,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Platform for performance management and engagement.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for reviews, goals, and surveys'
+          'Partner built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for reviews, goals, and surveys',
       },
       {
         id: 'officevibe',
@@ -454,7 +491,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Employee engagement and performance software.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for engagement surveys'
+          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for engagement surveys',
       },
       {
         id: 'reflektive',
@@ -463,9 +500,9 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Performance management platform.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for performance and engagement tracking'
+          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: Employee data for performance and engagement tracking',
       },
-    ]
+    ],
   },
   // Category: Workforce Management
   'workforce-management': {
@@ -478,7 +515,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Timesheet and expense tracking.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: On new hire and employee updates\nData: New hires and changes to employee details'
+          'Bob built | One-way from Bob\nTrigger: On new hire and employee updates\nData: New hires and changes to employee details',
       },
       {
         id: 'conni',
@@ -487,7 +524,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'AI-powered workforce management and scheduling.',
         integrationDetails:
-          'Partner built | Two-way\nTrigger: Real-time on employee events\nData: Employee data, schedules, and time off'
+          'Partner built | Two-way\nTrigger: Real-time on employee events\nData: Employee data, schedules, and time off',
       },
       {
         id: 'deputy',
@@ -496,7 +533,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Rostering, timesheets, and team communication.',
         integrationDetails:
-          'Bob built | One-way\nTrigger: On new hire and employee updates\nData: New hire and employee profile changes'
+          'Bob built | One-way\nTrigger: On new hire and employee updates\nData: New hire and employee profile changes',
       },
       {
         id: 'evolia',
@@ -505,16 +542,17 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Employee scheduling and time tracking.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On new hire\nData: New hire data for scheduling'
+          'Partner built | One-way from Bob\nTrigger: On new hire\nData: New hire data for scheduling',
       },
       {
         id: 'operating',
         name: 'Operating',
         logoUrl: 'https://logo.clearbit.com/operating.co',
         isMarketplacePartner: true,
-        usedFor: 'Workforce management/PSA for projects including forecasting and matching.',
+        usedFor:
+          'Workforce management/PSA for projects including forecasting and matching.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On new hire\nData: New hire data for scheduling and payroll'
+          'Partner built | One-way from Bob\nTrigger: On new hire\nData: New hire data for scheduling and payroll',
       },
       {
         id: 'quinyx',
@@ -523,7 +561,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'AI-powered workforce management.',
         integrationDetails:
-          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: New hires and employee profile changes'
+          'Bob built | One-way from Bob\nTrigger: Daily sync\nData: New hires and employee profile changes',
       },
       {
         id: 'surfbord',
@@ -532,7 +570,7 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Onboarding and IT provisioning.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On new hire\nData: New hire data for IT equipment and access'
+          'Partner built | One-way from Bob\nTrigger: On new hire\nData: New hire data for IT equipment and access',
       },
       {
         id: 'timeware',
@@ -541,8 +579,8 @@ export const marketplaceCategories = {
         isMarketplacePartner: true,
         usedFor: 'Time and attendance solutions.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On new hire and termination\nData: Employee data for time tracking'
+          'Partner built | One-way from Bob\nTrigger: On new hire and termination\nData: Employee data for time tracking',
       },
-    ]
+    ],
   },
 };
