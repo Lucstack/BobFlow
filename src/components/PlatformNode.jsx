@@ -213,10 +213,11 @@ const PlatformNode = ({ data, selected, id }) => {
     </div>
   );
 };
+console.log('⚡️PlatformNode loaded');
 console.log('platformType:', data.platformType);
 console.log(
-  'dropdown options:',
-  platformOptionsList.map(p => p.name)
+  'marketplaceCategories keys:',
+  Object.keys(marketplaceCategories || {})
 );
 
 export default PlatformNode;
