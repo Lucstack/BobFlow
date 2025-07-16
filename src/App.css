@@ -155,7 +155,8 @@ body {
    Node Styles (General)
    ========================================================================== */
 
-.custom-node, .central-node {
+.custom-node,
+.central-node {
   background: var(--node-bg);
   border: 1px solid var(--node-border);
   border-radius: var(--node-radius);
@@ -167,7 +168,8 @@ body {
   overflow: visible; /* Ensures badges/etc aren't clipped */
 }
 
-.custom-node.selected, .central-node.selected {
+.custom-node.selected,
+.central-node.selected {
   border-color: var(--accent-hibob);
   box-shadow: 0 0 0 3px rgba(255, 72, 139, 0.3), var(--node-shadow);
 }
@@ -286,7 +288,6 @@ body {
   object-fit: cover;
 }
 
-
 /* Platform Node Dropdown */
 .platform-info {
   display: flex;
@@ -320,7 +321,7 @@ body {
   z-index: 100;
   border: 1px solid #ddd;
   max-height: 220px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 .platform-option {
   display: flex;
