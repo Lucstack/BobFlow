@@ -12,13 +12,6 @@ const PlatformNode = ({ data, selected, id }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  console.log('⚡️PlatformNode loaded');
-  console.log('platformType:', data.platformType);
-  console.log(
-    'marketplaceCategories keys:',
-    Object.keys(marketplaceCategories || {})
-  );
-
   if (!marketplaceCategories || !marketplaceCategories[data.platformType]) {
     return <div className="custom-node">Loading...</div>;
   }

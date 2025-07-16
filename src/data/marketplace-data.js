@@ -8,7 +8,7 @@ export const marketplaceCategories = {
     integrations: [
       {
         id: 'greenhouse',
-        name: 'Greenhouse',
+        name: 'Greenhouze',
         logoUrl: 'https://logo.clearbit.com/greenhouse.io',
         isMarketplacePartner: true,
         usedFor: 'Applicant tracking & recruiting.',
