@@ -279,7 +279,8 @@ export const marketplaceCategories = {
       {
         id: 'activpayroll',
         name: 'ActivPayroll',
-        logoUrl: 'https://logo.clearbit.com/activpayroll.com',
+        logoUrl:
+          'https://media.licdn.com/dms/image/v2/D4E0BAQGQ1SEF2dD-Yw/company-logo_200_200/B4EZc12PhdH0AI-/0/1748955101675/activpayroll_logo?e=2147483647&v=beta&t=-GR-NUAvDT3JgQDQh_oYXvW_Lt7nw89gst5ELxDFPpE',
         isMarketplacePartner: true,
         usedFor: 'Global payroll and HR services.',
         integrationDetails:
