@@ -204,14 +204,24 @@ export const marketplaceCategories = {
     displayName: 'Payroll',
     integrations: [
       {
-        id: 'adp',
-        name: 'ADP',
-        logoUrl: 'https://logo.clearbit.com/adp.com',
-        isMarketplacePartner: false,
-        usedFor: 'Payroll and HR services.',
+        id: 'remote',
+        name: 'Remote',
+        logoUrl: 'https://logo.clearbit.com/remote.com',
+        isMarketplacePartner: true,
+        usedFor: 'Global HR, payroll, and compliance platform.',
         integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Payroll changes & employee updates',
+          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data for payroll and compliance',
       },
+      {
+        id: 'papaya-global',
+        name: 'Papaya Global',
+        logoUrl: 'https://logo.clearbit.com/papayaglobal.com',
+        isMarketplacePartner: true,
+        usedFor: 'Global payroll and workforce management.',
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Employee data, compensation, and time off',
+      },
+
       {
         id: 'blue-marble',
         name: 'Blue Marble',
@@ -267,6 +277,51 @@ export const marketplaceCategories = {
           'Partner built | Two-way\nTrigger: Scheduled sync\nData: Employee data for payroll processing',
       },
       {
+        id: 'activpayroll',
+        name: 'ActivPayroll',
+        logoUrl: 'https://logo.clearbit.com/activpayroll.com',
+        isMarketplacePartner: true,
+        usedFor: 'Global payroll and HR services.',
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data for payroll processing',
+      },
+      {
+        id: 'adpwfn',
+        name: 'ADP Workforce Now',
+        logoUrl: 'https://logo.clearbit.com/adp.com',
+        isMarketplacePartner: true,
+        usedFor: 'Payroll and HR services.',
+        integrationDetails:
+          'Hibob Payroll Hub | Two-way from Bob\nTrigger: Manual or Scheduled sync\nData: Payroll changes & employee updates',
+      },
+      {
+        id: 'adptotalsource',
+        name: 'ADP TotalSource',
+        logoUrl: 'https://logo.clearbit.com/adp.com',
+        isMarketplacePartner: true,
+        usedFor: 'Payroll and HR services.',
+        integrationDetails:
+          'Hibob Payroll Hub | One-way from Bob\nTrigger: Manual sync\nData: Payroll changes & employee updates',
+      },
+      {
+        id: 'mercans',
+        name: 'Mercans',
+        logoUrl: 'https://logo.clearbit.com/mercans.com',
+        isMarketplacePartner: true,
+        usedFor: 'Global payroll and HR services.',
+        integrationDetails:
+          'Partner built | Two-way\nTrigger: Real-time sync\nData: Employee data, time off, and compensation',
+      },
+      {
+        id: 'adp',
+        name: 'ADP',
+        logoUrl: 'https://logo.clearbit.com/adp.com',
+        isMarketplacePartner: false,
+        usedFor: 'Payroll and HR services.',
+        integrationDetails:
+          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Payroll changes & employee updates',
+      },
+      {
         id: 'brynq',
         name: 'Brynq',
         logoUrl: 'https://logo.clearbit.com/brynq.com',
@@ -274,24 +329,6 @@ export const marketplaceCategories = {
         usedFor: 'International HRIS to Payroll middelware.',
         integrationDetails:
           'Partner built | Two-way\nTrigger: Real-time sync\nData: Employee data, salary, payslips',
-      },
-      {
-        id: 'remote',
-        name: 'Remote',
-        logoUrl: 'https://logo.clearbit.com/remote.com',
-        isMarketplacePartner: true,
-        usedFor: 'Global HR, payroll, and compliance platform.',
-        integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: On pay cycle\nData: Employee data for payroll and compliance',
-      },
-      {
-        id: 'papaya-global',
-        name: 'Papaya Global',
-        logoUrl: 'https://logo.clearbit.com/papayaglobal.com',
-        isMarketplacePartner: true,
-        usedFor: 'Global payroll and workforce management.',
-        integrationDetails:
-          'Partner built | One-way from Bob\nTrigger: Scheduled sync\nData: Employee data, compensation, and time off',
       },
     ],
   },
